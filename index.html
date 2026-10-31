@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GBR Clinic</title>
+  <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #171717;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 12px 14px 20px;
+  background: #fff;
+  position: relative;
+  z-index: 10;
+}
+
+.logo img {
+  display: block;
+  width: 40px;
+  max-height: 60px;
+  object-fit: contain;
+}
+
+.menu-button {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.menu-button span {
+  width: 27px;
+  height: 2px;
+  background: #171717;
+}
+
+.menu-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: #050505;
+  color: #fff;
+  padding: 25px 8%;
+  display: none;
+  flex-direction: column;
+}
+
+.menu-screen.open {
+  display: flex;
+}
+
+.menu-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 65px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.close-button {
+  color: #fff;
+  background: transparent;
+  border: 0;
+  font-size: 38px;
+  cursor: pointer;
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.menu-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.menu-links a:hover {
+  color: #b9d9d5;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    padding: 20px 8%;
+  }
+
+  .menu-links a {
+    font-size: 36px;
+  }
+}
+
+
+
+/* HERO SECTION */
+.hero {
+  min-height: 570px;
+  padding: 100px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+
+  /* Replace with your actual hero image filename */
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url("/GBRCLINIC/images /pexels-pandaa-13538710.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* HERO TEXT CONTAINER */
+.hero-content {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* MAIN HEADING */
+.hero h1 {
+  font-size: clamp(36px, 6vw, 62px);
+  line-height: 1.12;
+  margin: 0 0 22px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* DESCRIPTION */
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-size: 17px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* BUTTON CONTAINER */
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+/* BOTH BUTTONS */
+.btn {
+  display: inline-block;
+  padding: 15px 22px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  width: 220px;
+}
+
+/* WHATSAPP BUTTON */
+.btn-primary {
+  background: #fff;
+  color: #171717;
+}
+
+/* EXPLORE SERVICES BUTTON */
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+/* MOBILE SCREEN */
+@media (max-width: 480px) {
+  .hero {
+    min-height: 540px;
+    padding: 80px 18px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    
+    justify-content: center;
+  }
+} 
+
+
+
+
+/* SERVICES SECTION */
+.services {
+  padding: 80px 20px;
+  background: #f7f7f7;
+  color: #171717;
+  overflow: hidden;
+}
+
+/* CENTERED HEADING AND DESCRIPTION */
+.services-header {
+  max-width: 750px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.section-label {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #555;
+}
+
+.services-header h2 {
+  margin: 0 0 16px;
+  font-size: clamp(30px, 4vw, 44px);
+}
+
+.services-intro {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* CAROUSEL AND SIDE ARROWS */
+.services-carousel-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.carousel-arrow {
+  flex: 0 0 46px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background: #fff;
+  color: #171717;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* HORIZONTAL CAROUSEL */
+.services-carousel {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.services-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* ONE CARD AT A TIME */
+.service-card {
+  flex: 0 0 100%;
+  min-width: 0;
+  background: #fff;
+  scroll-snap-align: start;
+}
+
+.service-card img {
+  display: block;
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+}
+
+.service-card-content {
+  padding: 24px;
+}
+
+.service-card h3 {
+  margin: 0 0 12px;
+  font-size: 23px;
+  line-height: 1.4;
+}
+
+.service-card p {
+  margin: 0;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .services {
+    padding: 60px 14px;
+  }
+
+  .services-header {
+    margin-bottom: 30px;
+  }
+
+  .services-intro {
+    font-size: 15px;
+  }
+
+  .services-carousel-wrapper {
+    gap: 8px;
+  }
+
+  .carousel-arrow {
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .service-card img {
+    height: 230px;
+  }
+
+  .service-card-content {
+    padding: 18px;
+  }
+
+  .service-card h3 {
+    font-size: 20px;
+  }
+}
+
+/* WHY CHOOSE US SECTION */
+.why-us {
+  position: relative;
+  min-height: 480px;
+  padding: 90px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+
+  /* Replace with your selected background photo */
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.65)
+    ),
+    url("/GBRCLINIC/images /pexels-funkcines-terapijos-centras-927573878-20860593.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* CENTERED CONTENT */
+.why-us-content {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.why-us-label {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.why-us h2 {
+  max-width: 700px;
+  margin: 0 auto 22px;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.why-us-description {
+  max-width: 650px;
+  margin: 0 auto 30px;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* WHATSAPP BUTTON */
+.why-us-button {
+  display: inline-block;
+  padding: 15px 24px;
+  background: #fff;
+  color: #171717;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .why-us {
+    min-height: 440px;
+    padding: 70px 20px;
+  }
+
+  .why-us h2 {
+    font-size: 32px;
+  }
+
+  .why-us-description {
+    font-size: 15px;
+  }
+}
+
+
+/* FOOTER */
+.site-footer {
+  background: #171717;
+  color: #fff;
+  padding: 65px 6% 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 45px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 45px;
+}
+
+.footer-clinic h2 {
+  margin: 0 0 16px;
+  font-size: 28px;
+}
+
+.footer-clinic p,
+.footer-column p {
+  color: #d0d0d0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.footer-column h3 {
+  margin: 0 0 20px;
+  font-size: 18px;
+}
+
+/* ADDRESS, PHONE, EMAIL AND FACEBOOK */
+.footer-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 17px;
+  color: #d0d0d0;
+  font-size: 14px;
+  line-height: 1.8;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+a.footer-detail:hover {
+  color: #fff;
+}
+
+.footer-icon {
+  display: inline-flex;
+  flex: 0 0 21px;
+  width: 21px;
+  height: 21px;
+  margin-top: 3px;
+}
+
+.footer-icon svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.facebook-icon svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* WHATSAPP BUTTON */
+.footer-message-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 14px 20px;
+  background: #fff;
+  color: #171717;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.footer-message-btn:hover {
+  opacity: 0.85;
+}
+
+/* COPYRIGHT */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 0;
+  border-top: 1px solid #444;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #bbb;
+  font-size: 13px;
+}
+
+/* MOBILE */
+@media (max-width: 750px) {
+  .site-footer {
+    padding: 50px 22px 0;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding-bottom: 35px;
+  }
+
+  .footer-clinic h2 {
+    font-size: 25px;
+  }
+}
+
+/* OUR CATALOGUE */
+.catalogue-section {
+  padding: 70px 6%;
+  background: #f5f5f5;
+  color: #171717;
+}
+
+.catalogue-heading {
+  text-align: center;
+  margin: 0 auto 40px;
+  max-width: 650px;
+}
+
+.catalogue-heading h2 {
+  font-size: 2rem;
+  margin: 0 0 12px;
+}
+
+.catalogue-heading p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+  margin: 0;
+}
+
+.catalogue-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.catalogue-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+}
+
+.catalogue-card img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.catalogue-card-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.catalogue-card-content h3 {
+  font-size: 1.1rem;
+  margin: 0 0 18px;
+}
+
+.catalogue-card-content a,
+.catalogue-bottom a {
+  display: inline-block;
+  padding: 11px 16px;
+  background: #171717;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.catalogue-card-content a:hover,
+.catalogue-bottom a:hover {
+  background: #444;
+}
+
+.catalogue-bottom {
+  text-align: center;
+  margin-top: 35px;
+}
+
+.catalogue-bottom a {
+  padding: 14px 24px;
+}
+
+@media (max-width: 900px) {
+  .catalogue-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .catalogue-section {
+    padding: 55px 5%;
+  }
+
+  .catalogue-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .catalogue-card img {
+    height: 230px;
+  }
+
+  .catalogue-heading h2 {
+    font-size: 1.7rem;
+  }
+}
+
+/* =================================
+   GBR CLINIC BRAND POLISH
+================================= */
+
+:root {
+  --gbr-dark: #183E2B;
+  --gbr-green: #3E6C44;
+  --gbr-light: #B7C49A;
+  --gbr-pale: #F5F7F1;
+  --gbr-white: #FFFFFF;
+  --gbr-text: #26352B;
+  --gbr-muted: #667268;
+}
+
+/* GENERAL */
+body {
+  color: var(--gbr-text);
+}
+
+a {
+  transition: background 0.25s ease,
+              color 0.25s ease,
+              transform 0.25s ease;
+}
+
+/* NAVIGATION */
+.navbar {
+  background: var(--gbr-white);
+  border-bottom: 1px solid #E8EDE6;
+}
+
+.menu-button span {
+  background: var(--gbr-dark);
+  border-radius: 5px;
+}
+
+.menu-screen {
+  background: var(--gbr-dark);
+}
+
+.menu-links a:hover {
+  color: var(--gbr-light);
+}
+
+/* HERO */
+.hero {
+  background-image:
+    linear-gradient(
+      rgba(17, 49, 31, 0.68),
+      rgba(17, 49, 31, 0.68)
+    ),
+    url("/GBRCLINIC/images /pexels-pandaa-13538710.jpg");
+}
+
+.btn {
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--gbr-green);
+  color: var(--gbr-white);
+}
+
+.btn-primary:hover {
+  background: var(--gbr-dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  border: 1px solid var(--gbr-white);
+  color: var(--gbr-white);
+}
+
+.btn-secondary:hover {
+  background: var(--gbr-white);
+  color: var(--gbr-dark);
+}
+
+/* SERVICES */
+.services {
+  background: var(--gbr-pale);
+  color: var(--gbr-text);
+}
+
+.section-label {
+  color: var(--gbr-green);
+}
+
+.services-header h2 {
+  color: var(--gbr-dark);
+}
+
+/* SERVICE CAROUSEL ARROWS */
+.carousel-arrow {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: var(--gbr-dark);
+  color: var(--gbr-white);
+  font-size: 25px;
+  font-weight: 400;
+  box-shadow: 0 4px 12px rgba(24, 62, 43, 0.16);
+  transition: all 0.25s ease;
+}
+
+.carousel-arrow:hover {
+  background: var(--gbr-green);
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(24, 62, 43, 0.23);
+}
+
+.carousel-arrow:active {
+  transform: scale(0.94);
+}
+
+.carousel-arrow:focus-visible {
+  outline: 3px solid var(--gbr-light);
+  outline-offset: 3px;
+}
+
+.service-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(24, 62, 43, 0.08);
+}
+
+.service-card-content {
+  background: var(--gbr-white);
+}
+
+.service-card h3 {
+  color: var(--gbr-dark);
+}
+
+/* WHY CHOOSE US */
+.why-us {
+  background-image:
+    linear-gradient(
+      rgba(17, 49, 31, 0.72),
+      rgba(17, 49, 31, 0.72)
+    ),
+    url("/GBRCLINIC/images /pexels-funkcines-terapijos-centras-927573878-20860593.jpg");
+}
+
+.why-us-button {
+  background: var(--gbr-green);
+  color: var(--gbr-white);
+  border-radius: 6px;
+}
+
+.why-us-button:hover {
+  background: var(--gbr-white);
+  color: var(--gbr-dark);
+  transform: translateY(-2px);
+}
+
+/* OUR CATALOGUE */
+.catalogue-section {
+  background: var(--gbr-pale);
+  color: var(--gbr-text);
+}
+
+.catalogue-heading h2 {
+  color: var(--gbr-dark);
+}
+
+.catalogue-heading p {
+  color: var(--gbr-muted);
+}
+
+.catalogue-card {
+  border: 1px solid #E3EAE0;
+  border-radius: 10px;
+  box-shadow: 0 5px 18px rgba(24, 62, 43, 0.07);
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.catalogue-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 26px rgba(24, 62, 43, 0.13);
+}
+
+.catalogue-card-content h3 {
+  color: var(--gbr-dark);
+}
+
+.catalogue-card-content a,
+.catalogue-bottom a {
+  background: var(--gbr-dark);
+  color: var(--gbr-white);
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.catalogue-card-content a:hover,
+.catalogue-bottom a:hover {
+  background: var(--gbr-green);
+  transform: translateY(-2px);
+}
+
+/* FOOTER */
+.site-footer {
+  background: var(--gbr-dark);
+}
+
+.footer-clinic h2 {
+  color: var(--gbr-white);
+}
+
+.footer-column h3 {
+  color: var(--gbr-light);
+}
+
+.footer-detail {
+  color: #E0E9DF;
+}
+
+a.footer-detail:hover {
+  color: var(--gbr-light);
+}
+
+.footer-message-btn {
+  background: var(--gbr-light);
+  color: var(--gbr-dark);
+  border-radius: 6px;
+}
+
+.footer-message-btn:hover {
+  background: var(--gbr-white);
+  opacity: 1;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* MOBILE ARROW SIZE */
+@media (max-width: 600px) {
+  .carousel-arrow {
+    flex-basis: 34px;
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="#home" class="logo">
+      <img src="/GBRCLINIC/images /Screenshot_20261028-192514.jpg"
+           alt="GBR Clinic logo">
+    </a>
+
+    <button class="menu-button" id="openMenu"
+      aria-label="Open menu" aria-expanded="false"
+      aria-controls="menuScreen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Move Better. Live With Less Pain.</h1>
+
+      <p>
+        GBR Clinic offers physiotherapy, chiropractic care
+        and other therapeutic services focused on pain
+        management, mobility and rehabilitation.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="https://wa.me/2348085688593"
+           class="btn btn-primary">
+          Message Us
+        </a>
+
+        <a href="#services" class="btn btn-secondary">
+          Explore Our Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SERVICES SECTION -->
+  <section class="services" id="services">
+
+    <div class="services-header">
+      <p class="section-label">WHAT WE OFFER</p>
+      <h2>Our Services</h2>
+      <p class="services-intro">
+        Explore our range of therapeutic services focused on
+        pain management, mobility and rehabilitation.
+      </p>
+    </div>
+
+    <div class="services-carousel-wrapper">
+
+      <!-- PREVIOUS ARROW -->
+      <button class="carousel-arrow" id="servicesPrev"
+        aria-label="Previous service">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15 3 L5 12 L15 21 L19 17 L12 12 L19 7 Z"
+                fill="#FFFFFF"
+                stroke="#183E2B"
+                stroke-width="1.2"
+                stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="services-carousel" id="servicesCarousel">
+
+        <article class="service-card">
+          <img src="/GBRCLINIC/images /pexels-karola-g-4506160.jpg"
+               alt="Physiotherapy and rehabilitation">
+          <div class="service-card-content">
+            <h3>Physiotherapy &amp; Rehabilitation</h3>
+            <p>
+              Care focused on improving movement, building strength
+              and supporting recovery from pain or injury.
+            </p>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <img src="/GBRCLINIC/images /pexels-ryutaro-5473182.jpg"
+               alt="Chiropractic care">
+          <div class="service-card-content">
+            <h3>Chiropractic Adjustment</h3>
+            <p>
+              A hands-on approach focused on spinal mobility,
+              joint movement and musculoskeletal concerns.
+            </p>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <img src="/GBRCLINIC/images /pexels-maksgelatin-6094082.jpg"
+               alt="Acupuncture therapy">
+          <div class="service-card-content">
+            <h3>Acupuncture</h3>
+            <p>
+              A therapeutic technique involving fine needles
+              at specific points on the body.
+            </p>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <img src="/GBRCLINIC/images /pexels-elly-fairytale-3865803.jpg"
+               alt="Deep tissue massage">
+          <div class="service-card-content">
+            <h3>Deep Tissue Massage</h3>
+            <p>
+              Focused massage techniques targeting deeper
+              muscle layers and areas of tension.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- NEXT ARROW -->
+      <button class="carousel-arrow" id="servicesNext"
+        aria-label="Next service">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 3 L19 12 L9 21 L5 17 L12 12 L5 7 Z"
+                fill="#FFFFFF"
+                stroke="#183E2B"
+                stroke-width="1.2"
+                stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+    </div>
+  </section>
+
+
+  <!-- OUR CATALOGUE -->
+  <section class="catalogue-section" id="catalogue">
+
+    <div class="catalogue-heading">
+      <h2>Our Catalogue</h2>
+      <p>Explore the products available through GBR Clinic.</p>
+    </div>
+
+    <div class="catalogue-grid">
+
+      <article class="catalogue-card">
+        <img src="/GBRCLINIC/images /Screenshot_20261029-182759.jpg"
+             alt="Solar panel products">
+        <div class="catalogue-card-content">
+          <h3>Solar Panel Tools</h3>
+          <a href="https://wa.me/c/2348085688593"
+             target="_blank" rel="noopener noreferrer">
+            See More on WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <article class="catalogue-card">
+        <img src="/GBRCLINIC/images /Screenshot_20261029-182923.jpg"
+             alt="Laboratory equipment">
+        <div class="catalogue-card-content">
+          <h3>Lab Equipment</h3>
+          <a href="https://wa.me/c/2348085688593"
+             target="_blank" rel="noopener noreferrer">
+            See More on WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <article class="catalogue-card">
+        <img src="/GBRCLINIC/images /Screenshot_20261029-183011.jpg"
+             alt="Hospital equipment">
+        <div class="catalogue-card-content">
+          <h3>Hospital Equipment</h3>
+          <a href="https://wa.me/c/2348085688593"
+             target="_blank" rel="noopener noreferrer">
+            See More on WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <article class="catalogue-card">
+        <img src="/GBRCLINIC/images /Screenshot_20261029-183121.jpg"
+             alt="Spa and massage tools">
+        <div class="catalogue-card-content">
+          <h3>Spa &amp; Massage Tools</h3>
+          <a href="https://wa.me/c/2348085688593"
+             target="_blank" rel="noopener noreferrer">
+            See More on WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <article class="catalogue-card">
+        <img src="/GBRCLINIC/images /Screenshot_20261029-222905.jpg"
+             alt="Drugs and supplements">
+        <div class="catalogue-card-content">
+          <h3>Drugs &amp; Supplements</h3>
+          <a href="https://wa.me/c/2348085688593"
+             target="_blank" rel="noopener noreferrer">
+            See More on WhatsApp
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="catalogue-bottom">
+      <a href="https://wa.me/c/2348085688593"
+         target="_blank" rel="noopener noreferrer">
+        Browse Full Catalogue
+      </a>
+    </div>
+
+  </section>
+
+
+  <!-- WHY CHOOSE US SECTION -->
+  <section class="why-us" id="why-us">
+
+    <div class="why-us-content">
+
+      <p class="why-us-label">WHY CHOOSE US</p>
+
+      <h2>Care Focused on Helping You Feel Better</h2>
+
+      <p class="why-us-description">
+        GBR Clinic provides a range of therapeutic services
+        focused on pain management, mobility and rehabilitation.
+        We aim to offer a welcoming environment where each
+        person's concerns can be discussed and suitable care explored.
+      </p>
+
+      <a href="https://wa.me/2348085688593"
+         class="why-us-button"
+         target="_blank"
+         rel="noopener noreferrer">
+        Chat With Us on WhatsApp
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="footer-content">
+
+      <div class="footer-clinic">
+        <h2>GBR Clinic</h2>
+        <p>
+          Supporting better movement, pain management
+          and rehabilitation through therapeutic care.
+        </p>
+
+        <a href="https://wa.me/2348085688593"
+           class="footer-message-btn"
+           target="_blank"
+           rel="noopener noreferrer">
+          Message Us on WhatsApp
+        </a>
+      </div>
+
+      <!-- CLINIC ADDRESS -->
+      <div class="footer-column">
+        <h3>Visit Our Clinic</h3>
+
+        <p class="footer-detail">
+          <span class="footer-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
+              <circle cx="12" cy="10" r="2.5"/>
+            </svg>
+          </span>
+          <span>
+            19 Umukoro Street, off Okiki Street,
+            Airport Road, Ekurede Urhobo,
+            Warri, Nigeria.
+          </span>
+        </p>
+      </div>
+
+      <!-- CONTACT INFORMATION -->
+      <div class="footer-column">
+        <h3>Get in Touch</h3>
+
+        <a class="footer-detail" href="tel:+2348085688593">
+          <span class="footer-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M22 16.9v3a2 2 0 0 1-2.2 2
+              19.8 19.8 0 0 1-8.6-3.1
+              19.4 19.4 0 0 1-6-6
+              A19.8 19.8 0 0 1 2.1 4.2
+              2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7
+              c.1 1 .4 2 .7 2.9
+              a2 2 0 0 1-.5 2.1L8 8
+              a16 16 0 0 0 6 6l1.3-1.3
+              a2 2 0 0 1 2.1-.5
+              c.9.3 1.9.6 2.9.7
+              a2 2 0 0 1 1.7 2Z"/>
+            </svg>
+          </span>
+          <span>08085688593</span>
+        </a>
+
+        <a class="footer-detail"
+           href="mailto:gbrdoctorwhyte@gmail.com">
+          <span class="footer-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="m3 7 9 6 9-6"/>
+            </svg>
+          </span>
+          <span>gbrdoctorwhyte@gmail.com</span>
+        </a>
+
+        <a class="footer-detail"
+           href="https://www.facebook.com/gbrclinicafrica"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Visit GBR Clinic on Facebook">
+          <span class="footer-icon facebook-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 21v-8h3l.5-4H14V7
+              c0-1.2.4-2 2-2h2V1.4
+              C17.3 1.2 16.2 1 15 1
+              c-3.3 0-5 2-5 5.5V9H7v4h3v8Z"/>
+            </svg>
+          </span>
+          <span>Find us on Facebook</span>
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 GBR Clinic. All rights reserved.</p>
+    </div>
+
+  </footer>
+
+
+  <!-- FULL-SCREEN NAVIGATION MENU -->
+  <nav class="menu-screen" id="menuScreen"
+       aria-label="Main navigation">
+
+    <div class="menu-top">
+      <span>GBR CLINIC</span>
+      <button class="close-button" id="closeMenu"
+        aria-label="Close menu">&times;</button>
+    </div>
+
+    <div class="menu-links">
+      <a href="#home">Home</a>
+      <a href="#services">Our Services</a>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#why-us">Why Choose Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+  </nav>
+
+  <script>
+const openMenu = document.getElementById("openMenu");
+const closeMenu = document.getElementById("closeMenu");
+const menuScreen = document.getElementById("menuScreen");
+
+openMenu.addEventListener("click", function () {
+  menuScreen.classList.add("open");
+  openMenu.setAttribute("aria-expanded", "true");
+  closeMenu.focus();
+});
+
+function hideMenu() {
+  menuScreen.classList.remove("open");
+  openMenu.setAttribute("aria-expanded", "false");
+  openMenu.focus();
+}
+
+closeMenu.addEventListener("click", hideMenu);
+
+menuScreen.querySelectorAll("a").forEach(function (link) {
+  link.addEventListener("click", hideMenu);
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" &&
+      menuScreen.classList.contains("open")) {
+    hideMenu();
+  }
+});
+
+
+/* SERVICES CAROUSEL */
+const servicesCarousel = document.getElementById("servicesCarousel");
+const servicesPrev = document.getElementById("servicesPrev");
+const servicesNext = document.getElementById("servicesNext");
+
+servicesNext.addEventListener("click", function () {
+  const cardWidth = servicesCarousel.clientWidth;
+  const gap = 0;
+
+  servicesCarousel.scrollBy({
+    left: cardWidth + gap,
+    behavior: "auto"
+  });
+});
+
+servicesPrev.addEventListener("click", function () {
+  const cardWidth = servicesCarousel.clientWidth;
+  const gap = 0;
+
+  servicesCarousel.scrollBy({
+    left: -(cardWidth + gap),
+    behavior: "auto"
+  });
+});
+  </script>
+</body>
+</html>
